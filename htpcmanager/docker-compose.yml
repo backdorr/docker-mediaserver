@@ -1,0 +1,15 @@
+version: '2'
+services:
+  htpcmanager:
+    container_name: htpcmanager
+    image: linuxserver/htpcmanager
+    restart: always
+    ports:
+      - 8085:8085/tcp
+    environment:
+      - TZ=America/Denver
+      - PUID=1000
+      - PGID=1000
+    hostname: tinyplex 
+    volumes:
+      - /data/appdata/htpcmanager/config:/config

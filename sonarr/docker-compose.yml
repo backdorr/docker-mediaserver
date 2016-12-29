@@ -1,0 +1,17 @@
+version: '2'
+services:
+  sonarr:
+    container_name: sonarr
+    image: linuxserver/sonarr
+    restart: always
+    ports:
+      - 8989:8989/tcp
+    environment:
+      - PUID=1000
+      - PGID=1000
+    hostname: tinyplex 
+    volumes:
+      - /data/downloads:/downloads
+      - /data/appdata/sonarr/config:/config
+      - /data/tv:/tv
+      - /dev/rtc:/dev/rtc:ro

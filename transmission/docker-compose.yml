@@ -1,0 +1,19 @@
+version: '2'
+services:
+  transmission:
+    container_name: transmission
+    image: linuxserver/transmission
+    restart: always
+    ports:
+      - 9091:9091/tcp
+      - 51413:51413/tcp
+      - 51413:51413/udp
+    environment:
+      - TZ=America/Denver
+      - PUID=1000
+      - PGID=1000
+    hostname: tinyplex 
+    volumes:
+      - /data/appdata/transmission/config:/config
+      - /data/downloads/torrent/watch:/watch
+      - /data/downloads/torrent:/downloads

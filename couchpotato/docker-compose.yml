@@ -1,0 +1,17 @@
+version: '2'
+services:
+  couchpotato:
+    container_name: couchpotato
+    image: linuxserver/couchpotato
+    restart: always
+    ports:
+      - 5050:5050/tcp
+    environment:
+      - TZ=America/Denver
+      - PUID=1000
+      - PGID=1000
+    hostname: tinyplex 
+    volumes:
+      - /data/downloads:/downloads
+      - /data/appdata/couchpotato/config:/config
+      - /data/movies:/movies

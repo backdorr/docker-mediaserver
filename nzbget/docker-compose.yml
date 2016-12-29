@@ -1,0 +1,18 @@
+version: '2'
+services:
+  nzbget:
+    container_name: nzbget
+    image: linuxserver/nzbget
+    restart: always
+    ports:
+      - 6789:6789/tcp
+    environment:
+      - TZ=America/Denver
+      - PUID=1000
+      - PGID=1000
+    hostname: tinyplex 
+    volumes:
+      - /data/downloads:/downloads
+      - /data/appdata/nzbget/config:/config
+      - /data/movies:/movies
+      - /data/tv:/tv
